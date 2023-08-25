@@ -1,27 +1,32 @@
+import { StatisticsText } from './Statistics.styled';
+import { StatisticsItem } from './Statistics.styled';
+
 export const Statistics = ({
-  good,
-  neutral,
-  bad,
-  total,
+  good = 0,
+  neutral = 0,
+  bad = 0,
+  total = 0,
   positivePercentage,
 }) => {
   return (
     <ul>
-      <li>
-        <p>Good: {good}</p>
-      </li>
-      <li>
-        <p>Neutral: {neutral}</p>
-      </li>
-      <li>
-        <p>Bad: {bad}</p>
-      </li>
-      <li>
-        <p>Total: {total}</p>
-      </li>
-      <li>
-        <p>Positive feedback: {positivePercentage}</p>
-      </li>
+      <StatisticsItem>
+        <StatisticsText>Good: {good}</StatisticsText>
+      </StatisticsItem>
+      <StatisticsItem>
+        <StatisticsText>Neutral: {neutral}</StatisticsText>
+      </StatisticsItem>
+      <StatisticsItem>
+        <StatisticsText>Bad: {bad}</StatisticsText>
+      </StatisticsItem>
+      <StatisticsItem>
+        <StatisticsText>Total: {total()}</StatisticsText>
+      </StatisticsItem>
+      <StatisticsItem>
+        <StatisticsText>
+          Positive feedback: {positivePercentage() || 0}%
+        </StatisticsText>
+      </StatisticsItem>
     </ul>
   );
 };
